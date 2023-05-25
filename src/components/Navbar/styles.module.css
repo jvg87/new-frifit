@@ -7,7 +7,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 4rem;
+  position: relative;
 }
 
 .logo{
@@ -37,9 +38,120 @@
 }
 
 .active_links{
+  position: relative;
   color: var(--color-secundary);
+}
+
+.active_links::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: .4rem solid transparent;
+  border-right: .4rem solid transparent;
+  border-bottom: .8rem solid var(--color-secundary);
+  position: absolute;
+  transform: rotate(180deg);
+  left: 45%;
+  margin-top: 1.2rem;
 }
 
 .btn_toggle{
   display: none;
+}
+
+@media screen and (max-width:930px) {
+  .nav_links{
+    display: none;
+    position: absolute;
+    top: 3.5rem;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    perspective: 400px;
+  }
+
+  .active_links::after{
+    display: none;
+  }
+
+  .nav_links li{
+    height: 4rem;
+    width: 100%;
+    box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.4);
+    transform: rotateX(90deg);
+    transform-origin: top;
+    opacity: 0;
+    animation: navAnimation .6s ease forwards;
+  }
+
+  .nav_links li:nth-child(2){
+    animation-delay: .2s;
+  }
+
+  .nav_links li:nth-child(3){
+      animation-delay: .4s;
+  }
+
+  .nav_links li:nth-child(4){
+      animation-delay: .6s;
+  }
+
+  .nav_links li:nth-child(5){
+      animation-delay: .8s;
+  }
+
+  .nav_links li:nth-child(6){
+      animation-delay: 1s;
+  }
+
+  .nav_links li:nth-child(7){
+      animation-delay: 1.2s;
+  }
+
+  @keyframes  navAnimation{
+    to{
+        transform: rotateX(0);
+        opacity: 1;
+    }
+  }
+
+  .nav_links li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 5rem 1rem 3rem;
+    background-color: var(--color-primary);
+  }
+
+  .show_nav{
+    display: flex;
+  }
+
+  .btn_toggle{
+    display: block;
+    cursor: pointer;
+  }
+
+  .btn_toggle div{
+    width: 32px;
+    height: 2px;
+    margin: 8px;
+    background-color: var(--color-secundary);
+    transition: .3s;
+  }
+
+  .exit_toggle .line1{
+    transform: rotate(-45deg) translate(-8px, 8px);
+  }
+
+  .exit_toggle .line2{
+    opacity: 0;
+  }
+
+  .exit_toggle .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
+  }
 }
