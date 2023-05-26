@@ -1,0 +1,64 @@
+.main_header{
+  width: 100%;
+  height: 100%;
+  color: var(--color-white);
+  position: relative;
+  background: url('../../../public/image2.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+.main_header::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.header_container{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
+  gap: 2rem;
+}
+
+.header_container h1{
+  font-size: 3rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.header_container h1 span{
+  color: var(--color-secundary);
+}
+
+.header_container p{
+  line-height: 1.7;
+}
+
+.header_btn{
+  width: fit-content;
+  padding: 1.2rem 3rem;
+  background-color: var(--color-secundary);
+  color: var(--color-primary);
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  transition: all .3s;
+}
+
+
+.header_btn:hover{
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
